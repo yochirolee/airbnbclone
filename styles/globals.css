@@ -35,3 +35,12 @@ a {
   background-color: #ff385c;
   z-index: 0;
 }
+
+/*HEADER ADVANCE SEARCH*/
+.h-search {
+  height: 66px;
+}
+
+.left-search-ops {
+  left: 20%;
+}

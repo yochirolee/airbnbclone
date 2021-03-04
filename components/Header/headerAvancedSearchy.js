@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useReducer, useRef } from "react";
+
 
 const menuItemsInitial = [
   { id: 0, text: "Lugares para hospedarse", op: 0, active: true },
@@ -20,7 +21,7 @@ export const HeaderAvancedSearch = ({ handleChangeSearch }) => {
   };
 
   return (
-    <div className="relative" >
+    <div className="">
       <div>
         <ul className="flex flex-row w-4/5  cursor-pointer   mx-auto justify-between text-lg">
           {menuItems &&
@@ -41,6 +42,7 @@ export const HeaderAvancedSearch = ({ handleChangeSearch }) => {
             ))}
         </ul>
       </div>
+     
     </div>
   );
 };

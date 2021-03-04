@@ -12,10 +12,10 @@ export default function HeaderActions() {
 
   return (
     <div
-      className="flex flex-row w-4/5 justify-between items-center"
+      className="flex flex-row w-3/4  md:w-4/5 justify-between mt-2 h-16 items-center "
     
     >
-      <div>
+      <div className=''>
         <p className="font-semibold leading-4">Hazte Anfitrion</p>
       </div>
       <div>

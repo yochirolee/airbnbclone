@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         "red-airbnb": "#FF385C",
       },
+      height: {
+        search: "66px",
+      },
     },
   },
   variants: {

@@ -8,7 +8,7 @@ export default function HeaderActionMenu({ toggleMenuActions }) {
   return (
     <div
       ref={innerRef}
-      className="absolute bg-white flex flex-col w-64 rounded-2xl  py-2 right-1 top-2 shadow-2xl"
+      className="absolute bg-white z-20 flex flex-col w-64 rounded-2xl  py-2 right-1 top-2 shadow-2xl"
     >
       <div className="border-b py-2 cursor-pointer">
         <ul>
