@@ -28,6 +28,7 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
+  try{
   if (cached.conn) {
     return cached.conn;
   }
@@ -47,4 +48,8 @@ export async function connectToDatabase() {
   }
   cached.conn = await cached.promise;
   return cached.conn;
+}
+catch (error){
+  throw error;
+}
 }
