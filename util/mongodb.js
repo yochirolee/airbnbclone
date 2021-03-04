@@ -1,6 +1,9 @@
 import { MongoClient } from 'mongodb'
 
-const { MONGODB_URI, MONGODB_DB } = process.env
+const  MONGODB_URI='mongodb+srv://yosho:Valentina*2015@cluster0.qzxze.mongodb.net/airbnb';
+
+
+ const  MONGODB_DB='listingsAndReviews';
 
 if (!MONGODB_URI) {
   throw new Error(
