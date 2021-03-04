@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 
-const  MONGODB_URI='mongodb+srv://yosho:Valentina*2015@cluster0.qzxze.mongodb.net/airbnb';
+const  MONGODB_URI='mongodb://yosho:Valentina*2015@cluster0.qzxze.mongodb.net/airbnb';
 
 
  const  MONGODB_DB='listingsAndReviews';
