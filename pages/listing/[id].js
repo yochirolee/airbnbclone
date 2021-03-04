@@ -1,8 +1,11 @@
 import { connectToDatabase } from "../../util/mongodb";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "../../components/Header/header";
 export default function Listing({ property }) {
   return (
+    <>
+    <Header/>
     <div className="container mx-auto mt-6  ">
       {property && (
         <div className=" flex flex-col border w-1/2 mx-auto ">
@@ -37,6 +40,7 @@ export default function Listing({ property }) {
         </div>
       )}
     </div>
+    </>
   );
 }
 

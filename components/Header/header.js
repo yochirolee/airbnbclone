@@ -1,14 +1,12 @@
 import Head from "next/head";
-import { HeaderAvancedSearch } from "./headerAvancedSearchy";
 import { HeaderLogo } from "./headerLogo";
 import { HeaderSearch } from "./headerSearch";
 import { useState } from "react";
-import { HeaderSearchOptions } from "./headerSearchOptions";
 import HeaderAdvance from "./headerAdvance";
 import HeaderActions from "./headerActions";
 
 export default function Header() {
-  const [isAdvanceSearch, setIsAdvanceSearch] = useState(true);
+  const [isAdvanceSearch, setIsAdvanceSearch] = useState(false);
 
   const handleChangeSearch = () => {
     setIsAdvanceSearch(!isAdvanceSearch);
