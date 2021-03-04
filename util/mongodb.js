@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 const MONGODB_URI =
-  "mmongodb+srv://yleecruz@gmail.com:audioslave*84@cluster0.qzxze.mongodb.net/airbnb?retryWrites=true&w=majority";
+  "mmongodb+srv://yleecruz@gmail.com:Valetina*2015@cluster0.qzxze.mongodb.net/airbnb?retryWrites=true&w=majority";
 const MONGODB_DB = "airbnb";
 
 if (!MONGODB_URI) {
