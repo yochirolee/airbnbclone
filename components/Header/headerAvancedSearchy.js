@@ -23,7 +23,7 @@ export const HeaderAvancedSearch = () => {
         <ul className="flex flex-row w-4/5  cursor-pointer   mx-auto justify-between text-lg">
           {menuItems &&
             menuItems.map((item) => (
-              <Item item={item} handleActive={handleActive} />
+              <Item key={item.id} item={item} handleActive={handleActive} />
             ))}
         </ul>
       </div>

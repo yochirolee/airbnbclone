@@ -5,13 +5,15 @@ import { useState, useRef, useEffect } from "react";
 import HeaderAdvance from "./headerAdvance";
 import HeaderActions from "./headerActions";
 
-export default function Header({isHome}) {
-  const [isAdvanceSearch, setIsAdvanceSearch] = useState(isHome?true:false);
-
-  const ref = useRef(null);
+export default function Header({ isHome }) {
+  const [isAdvanceSearch, setIsAdvanceSearch] = useState(isHome);
   
+  const ref = useRef(null);
+
   const handleScroll = () => {
-    console.log(ref.current, window.scrollY, "ref current");
+    if (!isAdvanceSearch) {
+      return;
+    }
     if (window.scrollY === 0 && isHome) {
       setIsAdvanceSearch(true);
     }
@@ -33,9 +35,7 @@ export default function Header({isHome}) {
   };
 
   return (
-    <div
-      ref={ref}
-    >
+    <div ref={ref}>
       {isAdvanceSearch ? (
         <HeaderAdvance handleChangeSearch={handleChangeSearch} />
       ) : (

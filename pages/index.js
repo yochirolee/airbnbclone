@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import Header from "../components/Header/header";
+import HeaderLinkItemButton from "../components/Header/headerLinkItemButton";
 import { connectToDatabase } from "../util/mongodb";
 
 export default function Home({ properties }) {
@@ -20,20 +22,21 @@ export default function Home({ properties }) {
                   height="300px"
                   width="350px"
                 ></Image>
-                <h3 className="text-center text-md text-bold  text-bold m-2">
-                  {property.name}
-                </h3>
-                <p className="text-center">{property.price}</p>
-                <div className="flex flex-row justify-start ">
-                  <p className="text-sm p-4 ">{property.address.country}</p>
-                  <p className="text-sm p-4">{property.address.country_code}</p>
+                <div className="flex flex-row align-middle mx-auto mt-4 font-bold">
+                  <h3 className="text-center text-md text-bold  text-bold ">
+                    {property.name}
+                  </h3>
+                  <p className="text-center ml-4">$ {property.price}</p>
                 </div>
-                <p className="text-sm px-6">{property.summary}</p>
-                <Link href={`/listing/${encodeURIComponent(property._id)}`}>
-                  <button className=" w-40 mx-auto justify-end my-3 bg-blue-500 p-1 rounded-md px-4 text-white">
-                    Details
-                  </button>
-                </Link>
+
+                <div className="flex flex-row font-bold  mx-auto my-4 ">
+                  <p className="text-sm pl-4 ">{property.address.country},</p>
+                  <p className="text-sm ml-2">
+                    {property.address.country_code}
+                  </p>
+                </div>
+                <p className="text-sm px-6 ">{property.summary}</p>
+                <HeaderLinkItemButton id={property._id} />
               </div>
             ))}
           </div>
@@ -47,7 +50,7 @@ export default function Home({ properties }) {
 
 export async function getServerSideProps(context) {
   const { db } = await connectToDatabase();
-
+  let loading = true;
   const data = await db
     .collection("listingsAndReviews")
     .find()
@@ -57,8 +60,9 @@ export async function getServerSideProps(context) {
 
   const properties = data.map((property) => {
     const price = JSON.parse(JSON.stringify(property.price));
-    console.log(property.acommodates);
+    loading = false;
     return {
+      loading: loading,
       _id: property._id,
       name: property.name,
       image: property.images.picture_url,
