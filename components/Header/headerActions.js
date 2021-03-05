@@ -8,14 +8,9 @@ export default function HeaderActions() {
     setToggle(!toggle);
   };
 
- 
-
   return (
-    <div
-      className="flex flex-row w-3/4  md:w-4/5 justify-between mt-2 h-16 items-center "
-    
-    >
-      <div className=''>
+    <div className="flex flex-row w-3/4  md:w-4/5 justify-between mt-2 h-16 items-center ">
+      <div className="">
         <p className="font-semibold leading-4">Hazte Anfitrion</p>
       </div>
       <div>
@@ -38,7 +33,7 @@ export default function HeaderActions() {
       <div>
         <button
           onClick={toggleMenuActions}
-          className="flex flex-row border rounded-full w-24 h-12 justify-between items-center px-2"
+          className="flex flex-row border rounded-full w-24 h-12 justify-between items-center px-2 relative"
         >
           <div className="ml-2">
             <svg
@@ -81,9 +76,14 @@ export default function HeaderActions() {
               <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
             </svg>
           </div>
+          <div className="h-4 w-4 rounded-full border-2 border-white  absolute right-1 -top-0 airbnb-bg"></div>
         </button>
         <div className="relative">
-          {toggle ? <HeaderActionMenu toggleMenuActions={toggleMenuActions} /> : ""}
+          {toggle ? (
+            <HeaderActionMenu toggleMenuActions={toggleMenuActions} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

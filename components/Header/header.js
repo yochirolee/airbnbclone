@@ -1,23 +1,45 @@
 import Head from "next/head";
 import { HeaderLogo } from "./headerLogo";
 import { HeaderSearch } from "./headerSearch";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import HeaderAdvance from "./headerAdvance";
 import HeaderActions from "./headerActions";
 
-export default function Header() {
-  const [isAdvanceSearch, setIsAdvanceSearch] = useState(false);
+export default function Header({isHome}) {
+  const [isAdvanceSearch, setIsAdvanceSearch] = useState(isHome?true:false);
+
+  const ref = useRef(null);
+  
+  const handleScroll = () => {
+    console.log(ref.current, window.scrollY, "ref current");
+    if (window.scrollY === 0 && isHome) {
+      setIsAdvanceSearch(true);
+    }
+    if (ref.current && window.scrollY > 20) {
+      setIsAdvanceSearch(!isAdvanceSearch);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", () => handleScroll);
+    };
+  }, []);
 
   const handleChangeSearch = () => {
     setIsAdvanceSearch(!isAdvanceSearch);
   };
 
   return (
-    <>
+    <div
+      ref={ref}
+    >
       {isAdvanceSearch ? (
         <HeaderAdvance handleChangeSearch={handleChangeSearch} />
       ) : (
-        <div className="border-b  flex z-10 w-full  bg-white">
+        <div className="border-b  flex z-10 w-full fixed bg-white">
           <div className="container mx-auto">
             <Head>
               <title>Create Next App</title>
@@ -37,6 +59,6 @@ export default function Header() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

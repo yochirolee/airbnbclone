@@ -5,7 +5,7 @@
         <p className="md:ml-10 hidden md:block font-light text-gray-600">
           Empieza tu Busqueda
         </p>
-        <div  className="airbnb-bg rounded-full  text-white h-8 w-8 md:mr-3 flex items-center justify-center ">
+        <div  className="airbnb-bg rounded-full   text-white h-8 w-8 md:mr-3 flex items-center justify-center ">
           <svg
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"

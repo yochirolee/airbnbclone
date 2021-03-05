@@ -5,8 +5,8 @@ import Header from "../../components/Header/header";
 export default function Listing({ property }) {
   return (
     <>
-    <Header/>
-    <div className="container mx-auto mt-6  ">
+    <Header />
+    <div className="container mx-auto pt-28  ">
       {property && (
         <div className=" flex flex-col border w-1/2 mx-auto ">
           <Image

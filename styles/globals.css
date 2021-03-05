@@ -44,3 +44,13 @@ a {
 .left-search-ops {
   left: 20%;
 }
+
+/*HEADER STICKY*/
+
+.sticky .sticky-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+}

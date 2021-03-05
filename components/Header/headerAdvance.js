@@ -11,7 +11,10 @@ export default function HeaderAdvance({ handleChangeSearch }) {
   });
 
   return (
-    <div className="border-b mb-10 fixed  z-10 w-full bg-white" ref={innerRef}>
+    <div
+      className="border-b mb-10 fixed  z-10 w-full bg-white "
+      ref={innerRef}
+    >
       <div className="container mx-auto">
         <Head>
           <title>Create Next App</title>
@@ -27,8 +30,8 @@ export default function HeaderAdvance({ handleChangeSearch }) {
           <div className="flex justify-end md:col-span-1 align-baseline">
             <HeaderActions />
           </div>
-          <div className='md:col-start-1 md:row-start-2 row-start-3 col-span-4'>
-          <HeaderSearchOptions />
+          <div className="md:col-start-1 md:row-start-2 row-start-3 col-span-4">
+            <HeaderSearchOptions />
           </div>
         </nav>
       </div>
