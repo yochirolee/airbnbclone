@@ -32,10 +32,13 @@ export const HeaderAvancedSearch = () => {
 };
 
 export function Item({ item, handleActive }) {
-  const [op, setOp] = useState(0);
+  const [op, setOp] = useState("invisible");
   return (
     <li key={item.id} onClick={(id) => handleActive(item.id)}>
-      <a onMouseOver={() => setOp(100)} onMouseLeave={() => setOp(0)}>
+      <a
+        onMouseOver={() => setOp("visible")}
+        onMouseLeave={() => setOp("invisible")}
+      >
         {item.text}
       </a>
 
@@ -43,7 +46,7 @@ export function Item({ item, handleActive }) {
         className={
           item.active
             ? "h-1 w-6 mt-2 text-center border-gray-600 border-b-2 mx-auto "
-            : `h-1  w-2 opacity-${op} mt-2 text-center  border-gray-600 border-b-2 mx-auto `
+            : `h-1  w-2 ${op} mt-2 text-center  border-gray-600 border-b-2 mx-auto `
         }
       ></div>
     </li>
