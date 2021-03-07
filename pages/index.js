@@ -49,25 +49,31 @@ export default function Home({ properties }) {
 }
 
 export async function getServerSideProps(context) {
-  const { db } = await connectToDatabase();
-  let loading = true;
-  const data = await db
-    .collection("listingsAndReviews")
-    .find()
-    .limit(12)
+  let data = "";
+  const { query } = context;
 
-    .toArray();
+  if (query.country) {
+    const res = await fetch(`http://localhost:3000/api/search?country=${query.country}`);
+    data = await res.json();
+  } else {
+    const { db } = await connectToDatabase();
+
+    data = await db
+      .collection("listingsAndReviews")
+      .find()
+      .limit(12)
+
+      .toArray();
+  }
 
   const properties = data.map((property) => {
     const price = JSON.parse(JSON.stringify(property.price));
-    loading = false;
+
     return {
-      loading: loading,
       _id: property._id,
       name: property.name,
       image: property.images.picture_url,
       address: property.address,
-      guests: property.accommodates,
       summary: property.summary,
       price: price.$numberDecimal,
     };
