@@ -50,10 +50,11 @@ export default function Home({ properties }) {
 
 export async function getServerSideProps(context) {
   let data = "";
+  console.log(context)
   const { query } = context;
 
   if (query.country) {
-    const res = await fetch(`http://localhost:3000/api/search?country=${query.country}`);
+    const res = await fetch(`https://airbnbclone-delta.vercel.app/api/search?country=${query.country}`);
     data = await res.json();
   } else {
     const { db } = await connectToDatabase();
